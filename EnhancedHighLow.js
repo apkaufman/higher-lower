@@ -32,7 +32,7 @@ let guessList = new Array(0);
 
 function guess()
 {
-    let guess = Number(document.getElementById("guess").value);
+    let guess = Number(document.getElementById("guess_box").value);
 
     let message = document.getElementById("message");
     
@@ -49,7 +49,14 @@ function guess()
         guessList.push(guess);
         if (guess == numToMatch)
         {
-            message.innerHTML = "<strong>You guessed correctly!</strong> It took you " + guessList.length + " guesses. Your guesses were: " + guessList.toString() + ".";
+            if (guessList.length == 1)
+            {
+                message.innerHTML = "<strong>You guessed correctly!</strong> It took you one guess. Your guess was: "+  guessList.toString() + ".";
+            }
+            else
+            {
+                message.innerHTML = "<strong>You guessed correctly!</strong> It took you " + guessList.length + " guesses. Your guesses were: " + guessList.toString() + ".";
+            }
         }
         else if (guess > numToMatch)
         {
